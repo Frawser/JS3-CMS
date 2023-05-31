@@ -3,7 +3,7 @@ import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const updateToken  = useContext(AuthContext);
+    const { updateToken } = useContext(AuthContext);
     const [loginData, setLoginData] = useState({
         userName: "",
         password: "",
@@ -30,8 +30,8 @@ const Login = () => {
             },
             body: JSON.stringify(loginData),
         });
-        // const data = await res.json();
-        // updateToken(data.token);
+        const data = await res.json();
+        updateToken(data.token);
         navigate("/");
     };
 
