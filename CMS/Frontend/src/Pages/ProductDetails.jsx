@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 const ProductDetails = () => {
+  const { token } = useContext(AuthContext);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:7777/api/products/${id}`)
@@ -20,9 +23,21 @@ const ProductDetails = () => {
     return <div>Loading...</div>;
   }
 
+  const removeProduct = async (id) => {
+    const res = await fetch(`http://localhost:7777/api/products/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
+    const data = await res.json();
+    console.log(data);
+    navigate("/products");
+  };
+
   return (
     <>
-     
       <div className="container d-flex mt-3">
         <div>
           <img src={product.imageURL} className=""></img>
@@ -35,7 +50,9 @@ const ProductDetails = () => {
           <div className="details-container-2-2">
             <p>{product.price} kr</p>
 
-            <button className="btn btn-outline-primary">remove</button>
+            <button className="btn btn-outline-primary" onClick={() => removeProduct(product._id)}>
+              remove
+            </button>
           </div>
         </div>
       </div>

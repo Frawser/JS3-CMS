@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
+import Create from "./Pages/Create";
 import Products from "./Pages/Products";
 import ProductDetails from "./Pages/ProductDetails";
 import RootBoundrary from "./boundarys/RootBoundrary";
@@ -31,6 +32,10 @@ const App = () => {
           path: "products/:id",
           element: <ProductDetails />,
         },
+        {
+          path: "create",
+          element: <Create />,
+        }
       ],
     },
   ]);

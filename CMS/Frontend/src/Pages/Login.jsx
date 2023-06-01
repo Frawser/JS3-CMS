@@ -32,6 +32,7 @@ const Login = () => {
         });
         const data = await res.json();
         updateToken(data.token);
+        console.log(data.token);
         navigate("/");
     };
 
