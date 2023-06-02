@@ -10,12 +10,12 @@ const AuthProvider = ({ children }) => {
     const initialToken = localStorageObject != "undefined" ? JSON.parse(localStorageObject) : null;
     //define state and set funcion & make sure token exists and isn't null
     const [token, setToken] = useState(initialToken?.token || null);
-  
+    //updateToken function to set token to state and localStorage
     const updateToken = (newToken) => {
       setToken(newToken);
       localStorage.setItem("token", JSON.stringify(newToken));
     };
-  
+    //return AuthContext.Provider with value of token and updateToken
     return (
       <AuthContext.Provider value={{ token, updateToken }}>
         {children}

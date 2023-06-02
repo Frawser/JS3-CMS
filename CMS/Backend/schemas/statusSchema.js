@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
-// const router = require('express').Router()
 
+
+// create a schema for the status
 const statusSchema = new Schema({
     _id:        { type: Number },
     status:     { type: String }
@@ -9,4 +10,3 @@ const statusSchema = new Schema({
 
 
 module.exports = mongoose.model('Status', statusSchema);
-// module.exports = router

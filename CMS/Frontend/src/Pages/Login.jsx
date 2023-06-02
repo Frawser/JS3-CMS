@@ -2,16 +2,20 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+// Creates a login page that allows the user to login to their account 
 const Login = () => {
+    // updateToken is a function that is used to update the token in the AuthContext
     const { updateToken } = useContext(AuthContext);
+    // loginData is a state that contains the username and password
     const [loginData, setLoginData] = useState({
         userName: "",
         password: "",
     });
     
-
+    // useNavigate is a function that is used to navigate to a different page
     const navigate = useNavigate();
 
+    // handleChange is a function that is used to update the loginData state
     const handleChange = (e) => {
         setLoginData((prevData) => {
             return {
@@ -21,6 +25,7 @@ const Login = () => {
         });
     };
 
+    // handleSubmit is a function that is used to submit the loginData state to the backend
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = await fetch("http://localhost:7777/api/users/login", {
@@ -36,6 +41,7 @@ const Login = () => {
         navigate("/");
     };
 
+    // Returns a login form that allows the user to login to their account
     return (
         <div className="contianer mb-3 login">
             <div className="mb-3">

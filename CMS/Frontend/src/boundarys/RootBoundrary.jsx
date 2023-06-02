@@ -1,6 +1,9 @@
+// Importing components from react-router-dom
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 
+// Creating a function called RootBoundrary that returns a div with a message depending on the error status
 const RootBoundrary = () => {
+
     const error = useRouteError();
 
     if (isRouteErrorResponse(error)) {

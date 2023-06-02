@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 
-
+// Creates a form that allows the user to create a new product and add it to the database
 const Create = () => {
   
     const { token } = useContext(AuthContext);
@@ -45,7 +45,7 @@ const Create = () => {
     };
 
     
-
+  // Return the form that allows the user to create a new product and add it to the database
   return (
     <div className="container">
       <h1>Add New Product</h1>

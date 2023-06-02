@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-
-
+// Creates a basic footer that contains two links and a CopyRight text
 const footer = () => {
   return (
     <div className="container position-absolute bottom-0 start-50 translate-middle-x">

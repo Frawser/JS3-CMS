@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Home = () => {
+  // return home page with link to products page
   return (
     <div className="position-absolute top-50 start-50 translate-middle">
       <h1 className="text-center">WELCOME TO FRUIT MASTER</h1>
